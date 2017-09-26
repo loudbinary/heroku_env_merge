@@ -1,6 +1,6 @@
 {
   "name": "heroku_env_merge",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "bin": {
     "heroku_env_merge": "./bin/cli.js"
