@@ -1,0 +1,19 @@
+{
+  "name": "heroku_env_merge",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "heroku_env_merge": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "loudbinary@gmail.com",
+  "license": "GNU",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "command-exists": "^1.2.2",
+    "execa": "^0.8.0",
+    "lodash": "^4.17.4"
+  }
+}
