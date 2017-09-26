@@ -12,7 +12,13 @@ function getValues(){
             })
         }
     })
-    return returnVals;
+    if (returnVals.length ===0){
+        console.log('No environment variables matching HEROKU_ENV_* - exiting');
+        process.exit(0);
+    } else {
+        return returnVals;
+    }
+
 }
 
 function unsetValues(key){

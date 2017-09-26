@@ -1,11 +1,11 @@
-const herokuValues = require('../libs/heroku').getHerokuEnv();
+console.log('Current working directory', __dirname);
 const heroku = require('../libs/heroku');
+const herokuValues = heroku.getHerokuEnv();
 const Promise = require('bluebird');
 
 const _ = require('lodash');
 var commandExists = require('command-exists').sync;
 
-let foundTerminus = commandExists('terminus');
 let foundHeroku= commandExists('heroku');
 
 function unsetVars(){
@@ -25,19 +25,26 @@ function setVars(){
         resolve(results);
     })
 }
-if (foundTerminus && foundHeroku && !_.isNil(process.env.HEROKU_APP_NAME)){
-    console.log('Unsettings variables');
-    unsetVars()
-        .then(()=>{
-            console.log('Completed removed variables, adding in requested new replacement variables.')
-        })
-        .then(()=>{
-            console.log('Assigned new Heroku environment variables now.');
-        })
-        .then(setVars())
-        .then(()=>{
-            console.log('Completed assigning new variables to Heroku application', process.env.HEROKU_APP_NAME);
-        })
 
+if (_.isNil(process.env.HEROKU_APP_NAME)){
+    console.log('HEROKU_APP_NAME is not defined, unable to continue.  Please assign HEROKU_APP_NAME to match your Heroku application name');
 }
+else {
+    if (foundHeroku){
+        console.log('Unsettings variables');
+        unsetVars()
+            .then(()=>{
+                console.log('Completed removed variables, adding in requested new replacement variables.')
+            })
+            .then(()=>{
+                console.log('Assigned new Heroku environment variables now.');
+            })
+            .then(setVars())
+            .then(()=>{
+                console.log('Completed assigning new variables to Heroku application', process.env.HEROKU_APP_NAME);
+            })
+
+    }
+}
+
 
