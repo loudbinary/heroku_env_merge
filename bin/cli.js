@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const path = require('path');
 const heroku = require(path.join(path.resolve(__dirname,'..','libs','heroku')));
 const herokuValues = heroku.getHerokuEnv();
