@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "",
   "bin": {
-    "heroku_env_merge": "./cli.js"
+    "heroku_env_merge": "./bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
