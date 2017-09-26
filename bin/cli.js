@@ -1,5 +1,4 @@
-console.log('Current working directory', __dirname);
-const heroku = require('../libs/heroku');
+const heroku = require(path.join(path.resolve(__dirname,'..','libs','heroku')));
 const herokuValues = heroku.getHerokuEnv();
 const Promise = require('bluebird');
 
